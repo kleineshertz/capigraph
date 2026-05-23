@@ -1,4 +1,4 @@
-# Capigraph <div style="float:right;"> [![coveralls](https://coveralls.io/repos/github/capillariesio/capillaries/badge.svg?branch=main)](https://coveralls.io/github/capillariesio/capigraph?branch=main) [![goreport](https://goreportcard.com/badge/github.com/capillariesio/capillaries)](https://goreportcard.com/report/github.com/capillariesio/capigraph) [![Go Reference](https://pkg.go.dev/badge/github.com/capillariesio/capigraph.svg)](https://pkg.go.dev/github.com/capillariesio/capigraph)</div>
+# Capigraph <div style="float:right;"> [![coveralls](https://coveralls.io/repos/github/capillariesio/capigraph/badge.svg?branch=main)](https://coveralls.io/github/capillariesio/capigraph?branch=main) [![goreport](https://goreportcard.com/badge/github.com/capillariesio/capillaries)](https://goreportcard.com/report/github.com/capillariesio/capigraph) [![Go Reference](https://pkg.go.dev/badge/github.com/capillariesio/capigraph.svg)](https://pkg.go.dev/github.com/capillariesio/capigraph)</div>
 
 
 Capigraph is a Go library, it started as part of the [Capillaries](https://github.com/capillariesio/capillaries) project, now it's a spin-off.
