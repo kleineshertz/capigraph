@@ -32,30 +32,37 @@ The ugly:
 ### Basic monochrome diamond-shaped diagram
 
 ```
-func TestReadmeMonochromeDiamond(t *testing.T) {
-	var testNodeDefsDiamond = []NodeDef{
-		{1, "1", EdgeDef{}, nil, "", 0,
-		NodeBorderRegular, TextColorDefault, NodeBackgroundSolid, ""},
-		{2, "2", EdgeDef{1, "", TextColorDefault}, nil, "", 0,
-		NodeBorderRegular, TextColorDefault, NodeBackgroundSolid, ""},
-		{3, "3", EdgeDef{1, "", TextColorDefault}, nil, "", 0,
-		NodeBorderRegular, TextColorDefault, NodeBackgroundSolid, ""},
-		{4, "4", EdgeDef{1, "", TextColorDefault}, nil, "", 0,
-		NodeBorderRegular, TextColorDefault, NodeBackgroundSolid, ""},
-		{5, "5", EdgeDef{3, "", TextColorDefault}, []EdgeDef{
-			{4, "", TextColorDefault},
-			{6, "", TextColorDefault}},
-		"", 0,
-		NodeBorderRegular, TextColorDefault, NodeBackgroundSolid, ""},
-		{6, "6", EdgeDef{}, nil, "", 0,
-		NodeBorderRegular, TextColorDefault, NodeBackgroundSolid, ""},
+import (
+	"context"
+	"fmt"
+
+	cg "github.com/capillariesio/capigraph"
+)
+
+func main() {
+	var testNodeDefsDiamond = []cg.NodeDef{
+		{1, "1", cg.EdgeDef{}, nil, "", 0,
+			cg.NodeBorderRegular, cg.TextColorDefault, cg.NodeBackgroundSolid, ""},
+		{2, "2", cg.EdgeDef{1, "", cg.TextColorDefault}, nil, "", 0,
+			cg.NodeBorderRegular, cg.TextColorDefault, cg.NodeBackgroundSolid, ""},
+		{3, "3", cg.EdgeDef{1, "", cg.TextColorDefault}, nil, "", 0,
+			cg.NodeBorderRegular, cg.TextColorDefault, cg.NodeBackgroundSolid, ""},
+		{4, "4", cg.EdgeDef{1, "", cg.TextColorDefault}, nil, "", 0,
+			cg.NodeBorderRegular, cg.TextColorDefault, cg.NodeBackgroundSolid, ""},
+		{5, "5", cg.EdgeDef{3, "", cg.TextColorDefault}, []cg.EdgeDef{
+			{4, "", cg.TextColorDefault},
+			{6, "", cg.TextColorDefault}},
+			"", 0,
+			cg.NodeBorderRegular, cg.TextColorDefault, cg.NodeBackgroundSolid, ""},
+		{6, "6", cg.EdgeDef{}, nil, "", 0,
+			cg.NodeBorderRegular, cg.TextColorDefault, cg.NodeBackgroundSolid, ""},
 	}
-	svg, _ := Draw(context.TODO(),
+	svg, _ := cg.Draw(context.TODO(),
 		testNodeDefsDiamond,
-		DefaultNodeFontOptions(),
-		DefaultEdgeLabelFontOptions(),
-		DefaultEdgeOptions(),
-		"", "", nil, Optimize)
+		cg.DefaultNodeFontOptions(),
+		cg.DefaultEdgeLabelFontOptions(),
+		cg.DefaultEdgeOptions(),
+		"", "", nil, cg.Optimize)
 	fmt.Printf("%s\n", svg)
 }
 ```
@@ -65,7 +72,16 @@ func TestReadmeMonochromeDiamond(t *testing.T) {
 ### Icons, nodes colored by root
 
 ```
-func TestReadmeRootColors(t *testing.T) {
+package main
+
+import (
+	"context"
+	"fmt"
+
+	cg "github.com/capillariesio/capigraph"
+)
+
+func main() {
 	const defsToAdd = `
 <g id="icon-database-table-read">
 	<g transform="scale(0.56) translate(2,61)">
@@ -99,61 +115,60 @@ func TestReadmeRootColors(t *testing.T) {
 </g>
 `
 
-	nodeFontOptions := FontOptions{
-		Typeface:     FontTypefaceCourier,
-		Weight:       FontWeightNormal,
+	nodeFontOptions := cg.FontOptions{
+		Typeface:     cg.FontTypefaceCourier,
+		Weight:       cg.FontWeightNormal,
 		SizeInPixels: 20,
 		Interval:     0.3}
-	edgeLabelFontOptions := FontOptions{
-		Typeface:     FontTypefaceVerdana,
-		Weight:       FontWeightNormal,
+	edgeLabelFontOptions := cg.FontOptions{
+		Typeface:     cg.FontTypefaceVerdana,
+		Weight:       cg.FontWeightNormal,
 		SizeInPixels: 10,
 		Interval:     0.3}
-	edgeOptions := EdgeOptions{StrokeWidth: 2.0}
+	edgeOptions := cg.EdgeOptions{StrokeWidth: 2.0}
 	cssOverrides := `
-.text-node {font-family:Verdana; font-size:16px; fill:gray;}
+.text-node {font-family:Verdana; cg.Font-size:16px; fill:gray;}
 `
 	rootNodePalette := []int32{
 		0x023EFF, 0xFF7C00, 0x1AC938, 0xE8000B, 0x8B2BE2, 0x9F4800, 0xF14CC1, 0xA3A3A3, 0xFFC400, 0x00D7FF} // blue, orange, etc.
 
-	var testDiagramWithOneEnclosedLevel = []NodeDef{
+	var testDiagramWithOneEnclosedLevel = []cg.NodeDef{
 		{1, "1 - Read\nprimary data\nfrom file",
-			EdgeDef{},
+			cg.EdgeDef{},
 			nil, "icon-database-table-read", 0,
-			NodeBorderRegular, TextColorAsContainer, NodeBackgroundSolid, ""},
+			cg.NodeBorderRegular, cg.TextColorAsContainer, cg.NodeBackgroundSolid, ""},
 		{2, "2 - Apply\n one set of Python formulas\nto primary data",
-			EdgeDef{1, "Data from file", TextColorAsContainer},
+			cg.EdgeDef{1, "Data from file", cg.TextColorAsContainer},
 			nil, "icon-database-table-py", 0x001080,
-			NodeBorderThick, TextColorAsContainer, NodeBackgroundSolid, ""},
+			cg.NodeBorderThick, cg.TextColorAsContainer, cg.NodeBackgroundSolid, ""},
 		{3, "3 - Apply\n another set of Python\nformulas to primary data",
-			EdgeDef{1, "Other data from file", TextColorDefault},
+			cg.EdgeDef{1, "Other data from file", cg.TextColorDefault},
 			nil, "icon-database-table-py", 0,
-			NodeBorderThick, TextColorAsContainer, NodeBackgroundSolid, ""},
+			cg.NodeBorderThick, cg.TextColorAsContainer, cg.NodeBackgroundSolid, ""},
 		{4, "4 - Join\n primary and\nsecondary data",
-			EdgeDef{2, "", TextColorDefault},
-			[]EdgeDef{{6, "Data to join", TextColorAsContainer}}, "icon-database-table-join", 0x001080,
-			NodeBorderRegular, TextColorAsContainer, NodeBackgroundSolid, ""},
+			cg.EdgeDef{2, "", cg.TextColorDefault},
+			[]cg.EdgeDef{{6, "Data to join", cg.TextColorAsContainer}}, "icon-database-table-join", 0x001080,
+			cg.NodeBorderRegular, cg.TextColorAsContainer, cg.NodeBackgroundSolid, ""},
 		{5, "5 - Join\n primary and\nsecondary data",
-			EdgeDef{3, "", TextColorDefault},
-			[]EdgeDef{{6, "Data to join", TextColorDefault}}, "icon-database-table-join", 0,
-			NodeBorderRegular, TextColorAsContainer, NodeBackgroundSolid, ""},
+			cg.EdgeDef{3, "", cg.TextColorDefault},
+			[]cg.EdgeDef{{6, "Data to join", cg.TextColorDefault}}, "icon-database-table-join", 0,
+			cg.NodeBorderRegular, cg.TextColorAsContainer, cg.NodeBackgroundSolid, ""},
 		{6, "6 - Read\n secondary data\nfrom file",
-			EdgeDef{},
+			cg.EdgeDef{},
 			nil, "icon-database-table-read", 0,
-			NodeBorderRegular, TextColorDefault, NodeBackgroundSolid, ""},
+			cg.NodeBorderRegular, cg.TextColorDefault, cg.NodeBackgroundSolid, ""},
 	}
 
-	svg, _ := Draw(context.TODO(),
+	svg, _ := cg.Draw(context.TODO(),
 		testDiagramWithOneEnclosedLevel,
 		nodeFontOptions,
 		edgeLabelFontOptions,
 		edgeOptions,
 		defsToAdd,
 		cssOverrides,
-		rootNodePalette, Optimize)
+		rootNodePalette, cg.Optimize)
 	fmt.Printf("%s\n", svg)
 }
-
 ```
 
 ![](./doc/example-root-colors.svg)
@@ -161,7 +176,16 @@ func TestReadmeRootColors(t *testing.T) {
 ### Custom node background
 
 ```
-func TestReadmeCustomBackground(t *testing.T) {
+package main
+
+import (
+	"context"
+	"fmt"
+
+	cg "github.com/capillariesio/capigraph"
+)
+
+func main() {
 	const defsToAdd = `
 <pattern id="diagonalBlueLines" patternUnits="userSpaceOnUse" width="10" height="10">
 	<line x1="10" y1="0" x2="20" y2="10" stroke="blue" opacity="0.3" stroke-width="2" stroke-linecap="square">
@@ -216,44 +240,43 @@ func TestReadmeCustomBackground(t *testing.T) {
 .failed-background {fill:url(#redSignal)}
 `
 
-	var testNodeDefsOneSecondary = []NodeDef{
+	var testNodeDefsOneSecondary = []cg.NodeDef{
 		{1, "1 - Complete",
-			EdgeDef{},
+			cg.EdgeDef{},
 			nil, "", 0x386641,
-			NodeBorderRegular, TextColorDefault, NodeBackgroundSolid, ""},
+			cg.NodeBorderRegular, cg.TextColorDefault, cg.NodeBackgroundSolid, ""},
 		{2, "2 - Running",
-			EdgeDef{1, "Some\ndata", TextColorDefault},
+			cg.EdgeDef{1, "Some\ndata", cg.TextColorDefault},
 			nil, "", 0x0000FF,
-			NodeBorderRegular, TextColorDefault, NodeBackgroundPattern, "diagonal-progress-background"},
+			cg.NodeBorderRegular, cg.TextColorDefault, cg.NodeBackgroundPattern, "diagonal-progress-background"},
 		{3, "3 - Complete",
-			EdgeDef{},
+			cg.EdgeDef{},
 			nil, "", 0x386641,
-			NodeBorderRegular, TextColorDefault, NodeBackgroundSolid, ""},
+			cg.NodeBorderRegular, cg.TextColorDefault, cg.NodeBackgroundSolid, ""},
 		{4, "4 - Running",
-			EdgeDef{3, "Some\nother\ndata", TextColorDefault},
+			cg.EdgeDef{3, "Some\nother\ndata", cg.TextColorDefault},
 			nil, "", 0x0000FF,
-			NodeBorderRegular, TextColorDefault, NodeBackgroundPattern, "top-progress-background"},
+			cg.NodeBorderRegular, cg.TextColorDefault, cg.NodeBackgroundPattern, "top-progress-background"},
 		{5, "5 - Not started",
-			EdgeDef{4, "Some primary data", TextColorDefault},
-			[]EdgeDef{{6, "Some data to join", TextColorDefault}}, "", 0,
-			NodeBorderRegular, TextColorDefault, NodeBackgroundSolid, ""},
+			cg.EdgeDef{4, "Some primary data", cg.TextColorDefault},
+			[]cg.EdgeDef{{6, "Some data to join", cg.TextColorDefault}}, "", 0,
+			cg.NodeBorderRegular, cg.TextColorDefault, cg.NodeBackgroundSolid, ""},
 		{6, "6 - Failed",
-			EdgeDef{},
+			cg.EdgeDef{},
 			nil, "", 0xEC0000,
-			NodeBorderRegular, TextColorDefault, NodeBackgroundPattern, "failed-background"},
+			cg.NodeBorderRegular, cg.TextColorDefault, cg.NodeBackgroundPattern, "failed-background"},
 	}
-	svg, _ := Draw(context.TODO(),
+	svg, _ := cg.Draw(context.TODO(),
 		testNodeDefsOneSecondary,
-		DefaultNodeFontOptions(),
-		DefaultEdgeLabelFontOptions(),
-		DefaultEdgeOptions(),
+		cg.DefaultNodeFontOptions(),
+		cg.DefaultEdgeLabelFontOptions(),
+		cg.DefaultEdgeOptions(),
 		defsToAdd,
 		cssOverrides,
 		nil,
-		Optimize)
+		cg.Optimize)
 	fmt.Printf("%s\n", svg)
 }
-
 ```
 
 ![](./doc/example-custom-background.svg)
