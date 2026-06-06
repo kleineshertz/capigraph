@@ -1,8 +1,7 @@
 # Capigraph <div style="float:right;"> [![coveralls](https://coveralls.io/repos/github/capillariesio/capigraph/badge.svg?branch=main)](https://coveralls.io/github/capillariesio/capigraph?branch=main) [![goreport](https://goreportcard.com/badge/github.com/capillariesio/capillaries)](https://goreportcard.com/report/github.com/capillariesio/capigraph) [![Go Reference](https://pkg.go.dev/badge/github.com/capillariesio/capigraph.svg)](https://pkg.go.dev/github.com/capillariesio/capigraph)</div>
 
 
-Capigraph is a Go library, it started as part of the [Capillaries](https://github.com/capillariesio/capillaries) project, now it's a spin-off.
-It is pretty opinionated and it is used by Capillaries to draw data processing diagrams in Capillaries WebUI. It generates SVG diagrams from definitions in Go programs. It was designed to visualize a pretty specific class of diagrams - data processing DAGs, see details and examples below.
+Capigraph is a Go library for visualizing DAGs using Sugiyama-style (layered, hierarchical) [drawing technique](https://en.wikipedia.org/wiki/Layered_graph_drawing). It is a spin-off from the [Capillaries](https://github.com/capillariesio/capillaries) project, and it is used by Capillaries to draw data processing diagrams in Capillaries WebUI. It generates SVG diagrams from definitions in Go programs. It was designed to visualize a pretty specific class of diagrams - data processing DAGs, see details and examples below.
 
 ## Highlights and shortcomings
 
@@ -10,7 +9,7 @@ What it does:
 - Input: DAG only
 - Output: SVG file
 - Each node can have zero or one incoming primary edge (solid arrows), and zero or more incoming secondary edges (dashed arrows)
-- Nodes are arranged as if they are executed in stages, top to bottom (Capillaries uses these diagrams to visualize batch processing)
+- Nodes are arranged as if they are executed in stages (layers), top to bottom (Capillaries uses these diagrams to visualize batch processing)
 
 The good:
 - Coloring by root node
