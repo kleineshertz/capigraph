@@ -31,6 +31,8 @@ The ugly:
 ### Basic monochrome diamond-shaped diagram
 
 ```
+package main
+
 import (
 	"context"
 	"fmt"
@@ -126,7 +128,7 @@ func main() {
 		Interval:     0.3}
 	edgeOptions := cg.EdgeOptions{StrokeWidth: 2.0}
 	cssOverrides := `
-.text-node {font-family:Verdana; cg.Font-size:16px; fill:gray;}
+.text-node {font-family:Verdana; font-size:16px; fill:gray;}
 `
 	rootNodePalette := []int32{
 		0x023EFF, 0xFF7C00, 0x1AC938, 0xE8000B, 0x8B2BE2, 0x9F4800, 0xF14CC1, 0xA3A3A3, 0xFFC400, 0x00D7FF} // blue, orange, etc.
