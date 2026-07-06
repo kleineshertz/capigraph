@@ -450,7 +450,7 @@ func Draw(ctx context.Context, nodeDefs []NodeDef, nodeFo FontOptions, edgeFo Fo
 			return "", err
 		}
 	}
-	vizNodeMap, totalPermutations, elapsed, bestDist, err := getBestHierarchy(ctx, nodeDefs, nodeFo, edgeFo, optimizationMode)
+	vizNodeMap, _, totalPermutations, elapsed, bestDist, err := getBestHierarchy(ctx, nodeDefs, nodeFo, edgeFo, optimizationMode)
 	if err != nil {
 		return "", err
 	}

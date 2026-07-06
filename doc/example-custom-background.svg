@@ -165,5 +165,5 @@
   <rect class="rect-node rect-node-root-6" style="stroke:#EC0000;" x="444.00" y="214.80" width="160.00" height="60.00" pointer-events="none"/>
   <text class="text-node" x="464.00" y="234.80">6 - Failed</text>
 </a>
-<text class="capigraph-rendering-stats" x="0" y="0">Perms 6, elapsed 0.000s, dist 240.0</text>
+<text class="capigraph-rendering-stats" x="0" y="0">Perms 6, elapsed 0.000s, dist 210.0</text>
 </svg>

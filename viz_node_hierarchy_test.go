@@ -39,7 +39,7 @@ func TestBasicMx(t *testing.T) {
 	assert.Equal(t, 0.0, vnh.VizNodeMap[2].X)
 	assert.Equal(t, 72.0, vnh.VizNodeMap[3].X)
 
-	horShift := vnh.CalculateTotalHorizontalShift()
+	horShift, _ := vnh.CalculateTotalHorizontalShift()
 	assert.Equal(t, 72.0, math.Round(horShift*100)/100.0)
 
 	vnh.populateEdgeLabelDimensions()

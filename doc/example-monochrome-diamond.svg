@@ -57,26 +57,26 @@
 .text-edge-root-6 {fill:#000000}
 .capigraph-rendering-stats {font-family:arial; font-weight:normal; font-size:10px; text-anchor:start; alignment-baseline:hanging; fill:transparent;}</style>
 <rect class="viz-background" x="-10" y="-10" width="298" height="330"/>
-<path class="path-edge-pri path-edge-pri-1" d="m134.00,64.00 L26.00,114.00"/>
-<path class="path-edge-pri path-edge-pri-1" d="m134.00,64.00 L170.00,114.00"/>
+<path class="path-edge-pri path-edge-pri-1" d="m98.00,64.00 L26.00,114.00"/>
+<path class="path-edge-pri path-edge-pri-1" d="m98.00,64.00 L98.00,114.00"/>
+<path class="path-edge-pri path-edge-pri-1" d="m98.00,64.00 L170.00,114.00"/>
 <path class="path-edge-pri path-edge-pri-1" d="m170.00,184.00 L170.00,234.00"/>
-<path class="path-edge-sec path-edge-sec-1" d="m232.00,184.00 C221.60,209.00 190.40,209.00 180.00,234.00"/>
-<path class="path-edge-sec path-edge-sec-6" d="m108.00,184.00 C118.40,209.00 149.60,209.00 160.00,234.00"/>
-<path class="path-edge-pri path-edge-pri-1" d="m134.00,64.00 L242.00,114.00"/>
+<path class="path-edge-sec path-edge-sec-1" d="m108.00,184.00 C118.40,209.00 149.60,209.00 160.00,234.00"/>
+<path class="path-edge-sec path-edge-sec-6" d="m232.00,184.00 C221.60,209.00 190.40,209.00 180.00,234.00"/>
 <a xlink:title="1">
-  <rect class="rect-node-background rect-node-background-1"  x="108.00" y="0.00" width="52.00" height="60.00"/>
-  <rect class="rect-node rect-node-root-1"  x="108.00" y="0.00" width="52.00" height="60.00" pointer-events="none"/>
-  <text class="text-node" x="128.00" y="20.00">1</text>
+  <rect class="rect-node-background rect-node-background-1"  x="72.00" y="0.00" width="52.00" height="60.00"/>
+  <rect class="rect-node rect-node-root-1"  x="72.00" y="0.00" width="52.00" height="60.00" pointer-events="none"/>
+  <text class="text-node" x="92.00" y="20.00">1</text>
 </a>
 <a xlink:title="2">
   <rect class="rect-node-background rect-node-background-1"  x="0.00" y="120.00" width="52.00" height="60.00"/>
   <rect class="rect-node rect-node-root-1"  x="0.00" y="120.00" width="52.00" height="60.00" pointer-events="none"/>
   <text class="text-node" x="20.00" y="140.00">2</text>
 </a>
-<a xlink:title="6">
-  <rect class="rect-node-background rect-node-background-6"  x="72.00" y="120.00" width="52.00" height="60.00"/>
-  <rect class="rect-node rect-node-root-6"  x="72.00" y="120.00" width="52.00" height="60.00" pointer-events="none"/>
-  <text class="text-node" x="92.00" y="140.00">6</text>
+<a xlink:title="4">
+  <rect class="rect-node-background rect-node-background-1"  x="72.00" y="120.00" width="52.00" height="60.00"/>
+  <rect class="rect-node rect-node-root-1"  x="72.00" y="120.00" width="52.00" height="60.00" pointer-events="none"/>
+  <text class="text-node" x="92.00" y="140.00">4</text>
 </a>
 <a xlink:title="3">
   <rect class="rect-node-background rect-node-background-1"  x="144.00" y="120.00" width="52.00" height="60.00"/>
@@ -88,10 +88,10 @@
   <rect class="rect-node rect-node-root-1"  x="144.00" y="240.00" width="52.00" height="60.00" pointer-events="none"/>
   <text class="text-node" x="164.00" y="260.00">5</text>
 </a>
-<a xlink:title="4">
-  <rect class="rect-node-background rect-node-background-1"  x="216.00" y="120.00" width="52.00" height="60.00"/>
-  <rect class="rect-node rect-node-root-1"  x="216.00" y="120.00" width="52.00" height="60.00" pointer-events="none"/>
-  <text class="text-node" x="236.00" y="140.00">4</text>
+<a xlink:title="6">
+  <rect class="rect-node-background rect-node-background-6"  x="216.00" y="120.00" width="52.00" height="60.00"/>
+  <rect class="rect-node rect-node-root-6"  x="216.00" y="120.00" width="52.00" height="60.00" pointer-events="none"/>
+  <text class="text-node" x="236.00" y="140.00">6</text>
 </a>
-<text class="capigraph-rendering-stats" x="0" y="0">Perms 24, elapsed 0.000s, dist 144.0</text>
+<text class="capigraph-rendering-stats" x="0" y="0">Perms 24, elapsed 0.000s, dist 288.0</text>
 </svg>
